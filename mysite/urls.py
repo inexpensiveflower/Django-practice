@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# include() means that removing the '/' from the request, then continue to compare the url's pattern in /blog/urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
