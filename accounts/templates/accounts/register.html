@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+
+<h3>註冊</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+    <br />
+    <input class="btn btn-success" type="submit" value="註冊" />
+    <a class="btn btn-warning" href="{% url 'log_in' %}">返回</a>
+</form>
+
+{% endblock  %}
