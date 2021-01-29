@@ -1,0 +1,19 @@
+{% extends 'accounts/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h3>註冊</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <br />
+    <input class="btn btn-success" type="submit" value="註冊" />
+    <a class="btn btn-warning" href="{% url 'Login' %}">返回</a>
+</form>
+
+{% endblock  %}

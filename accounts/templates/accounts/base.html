@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<head>
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<title>Django</title>
+	</head>
+	<body>
+		<div class="page-header">
+			
+			<!-- 用切掉最後的 path 的方式來產生回首頁的連結 -->
+			{% with request.path|slice:":-6" as path %}
+				{% if path == '/accounts/' %}
+					<h1><a href="{{ request.path|slice:':-6' }}">Django</a></h1>
+				{% endif %}
+			{% endwith %}
+
+			{% with request.path|slice:":-9" as path %}
+				{% if path == '/accounts/' %}
+					<h1><a href="{{ request.path|slice:':-9' }}">Django</a></h1>
+				{% endif %}
+			{% endwith %}
+
+			{% if user.authenticated %}
+				<a class="btn btn-lg btn-primary" href="{% url 'Logout' %}" role="button">登出 &#187;</a>
+			{% endif %}
+			
+		</div>
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+				{% block content %}
+				{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
