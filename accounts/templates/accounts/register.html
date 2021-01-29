@@ -1,4 +1,6 @@
-{% extends 'blog/base.html' %}
+{% extends 'accounts/base.html' %}
+
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -7,11 +9,11 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
 
     <br />
     <input class="btn btn-success" type="submit" value="註冊" />
-    <a class="btn btn-warning" href="{% url 'log_in' %}">返回</a>
+    <a class="btn btn-warning" href="{% url 'Login' %}">返回</a>
 </form>
 
 {% endblock  %}

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required(login_url="log_in")
+@login_required(login_url="Login")
 def post_list(request):
 	posts = Post.objects.filter(created_date__lte = timezone.now()).order_by('created_date')
 	return render(request, 'blog/post_list.html', {'posts':posts})

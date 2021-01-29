@@ -1,0 +1,20 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+<!--
+<div class="jumbotron mt-3">
+    <h1>Django AuthDev HomPage</h1>
+    <p class="lead">This example is a quick demo to illustrate how django authentication works.</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'Logout' %}" role="button">登出 &#187;</a>
+</div>
+-->
+
+	<h1>客戶基本資料</h1>
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-primary" type="submit" value="儲存" />
+	</form>
+{% endblock %}
